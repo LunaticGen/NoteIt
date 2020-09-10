@@ -5,7 +5,6 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
@@ -17,7 +16,6 @@ import android.widget.Toast;
 
 import com.example.noteit.model.Adapter;
 import com.google.android.material.navigation.NavigationView;
-import com.google.api.Distribution;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.noteDetailsTitle);
         setSupportActionBar(toolbar);
 
         noteLists=findViewById(R.id.notelist);
