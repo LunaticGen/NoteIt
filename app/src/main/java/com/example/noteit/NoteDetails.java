@@ -36,7 +36,7 @@ public class NoteDetails extends AppCompatActivity {
         title.setText(data.getStringExtra("title"));
         content.setBackgroundColor(getResources().getColor(data.getIntExtra("code",0),null));
 
-        FloatingActionButton fab = findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.addNoteFloat);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
