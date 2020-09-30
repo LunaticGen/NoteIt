@@ -12,6 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -70,7 +73,24 @@ public class AddNote extends AppCompatActivity {
                 });
             }
         });
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.close_menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.close)
+        {
+            Toast.makeText(this, "Not Saved", Toast.LENGTH_SHORT).show();
+            onBackPressed();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

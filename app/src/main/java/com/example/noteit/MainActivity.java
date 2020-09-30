@@ -16,8 +16,11 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.noteit.model.Adapter;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,13 +31,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     NavigationView nav_view;
     RecyclerView noteLists;
     Adapter adapter;
-
+    FirebaseFirestore fStore;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.noteDetailsTitle);
         setSupportActionBar(toolbar);
+        fStore = FirebaseFirestore.getInstance();
+
+        Query query = fStore.collection("notes").orderBy("title",Query.Direction.DESCENDING);
+
+        FirestoreRecyclerOptions<>
 
         noteLists=findViewById(R.id.notelist);
         drawerLayout = findViewById(R.id.drawer);
