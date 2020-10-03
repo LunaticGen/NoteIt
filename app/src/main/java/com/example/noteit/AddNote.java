@@ -48,8 +48,7 @@ public class AddNote extends AppCompatActivity {
 
                 if(nTitle.isEmpty()|| nContent.isEmpty()){
                     Toast.makeText(AddNote.this,"cant not save empty note",Toast.LENGTH_SHORT).show();
-                    return;
-                }
+                    return;                }
 
                 progressBarSave.setVisibility(View.VISIBLE);
 
