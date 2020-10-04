@@ -66,7 +66,7 @@ public class AddNote extends AppCompatActivity {
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(AddNote.this,"Error Try again",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddNote.this,"Error,Please Try again",Toast.LENGTH_SHORT).show();
                         progressBarSave.setVisibility(View.VISIBLE);
                     }
                 });
