@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".EditNote"></activity>
         <activity
             android:name=".AddNote"
             android:label="@string/title_activity_add_note"
@@ -16,8 +17,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".NoteDetails"
-            android:parentActivityName=".MainActivity"
             android:label="@string/title_activity_note_details"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MainActivity"
