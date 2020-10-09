@@ -1,7 +1,8 @@
-package com.example.noteit;
+package com.example.noteit.note;
 
 import android.os.Bundle;
 
+import com.example.noteit.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;

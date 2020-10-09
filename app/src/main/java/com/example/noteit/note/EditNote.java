@@ -1,4 +1,4 @@
-package com.example.noteit;
+package com.example.noteit.note;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,12 +9,12 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
+import com.example.noteit.MainActivity;
+import com.example.noteit.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -72,7 +72,7 @@ public class EditNote extends AppCompatActivity {
                     public void onSuccess(Void aVoid) {
                         Toast.makeText(EditNote.this,"Note Saved",Toast.LENGTH_SHORT).show();
                         onBackPressed();
-                        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
 
                     }
                 }).addOnFailureListener(new OnFailureListener() {

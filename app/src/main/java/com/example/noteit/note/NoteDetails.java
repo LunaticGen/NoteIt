@@ -1,8 +1,9 @@
-package com.example.noteit;
+package com.example.noteit.note;
 
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.noteit.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 

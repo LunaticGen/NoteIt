@@ -23,6 +23,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.noteit.model.Note;
+import com.example.noteit.note.AddNote;
+import com.example.noteit.note.EditNote;
+import com.example.noteit.note.NoteDetails;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -90,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         menu.getMenu().add("Edit").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                             @Override
                             public boolean onMenuItemClick(MenuItem menuItem) {
-                                Intent i =new Intent(v.getContext(),EditNote.class);
+                                Intent i =new Intent(v.getContext(), EditNote.class);
                                 i.putExtra("title", note.getTitle());
                                 i.putExtra("content", note.getContent());
                                 i.putExtra("noteId", docId);
@@ -149,7 +152,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(view.getContext(),AddNote.class));
+                startActivity(new Intent(view.getContext(), AddNote.class));
             }
         });
 
