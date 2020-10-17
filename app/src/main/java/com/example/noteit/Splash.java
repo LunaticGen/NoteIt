@@ -30,7 +30,9 @@ public class Splash extends AppCompatActivity {
                 //check if user is logged in
                 if(fAuth.getCurrentUser() != null){
                     startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                }else {
+                    finish();
+                }
+                else {
                     //create new anonymous account
                     fAuth.signInAnonymously().addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                         @Override
