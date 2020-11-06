@@ -21,6 +21,8 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 public class Register extends AppCompatActivity {
     EditText rUserName,rUserEmail,rUserPass,rUserConfPass;
@@ -41,12 +43,21 @@ public class Register extends AppCompatActivity {
 
         syncAccount = findViewById(R.id.createAccount);
         loginAct = findViewById(R.id.login);
+        progressBar =findViewById(R.id.progressBar4);
 
         fAuth = FirebaseAuth.getInstance();
+
+        loginAct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),Login.class));
+            }
+        });
+
         syncAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String uUsername = rUserName.getText().toString();
+                final String uUsername = rUserName.getText().toString();
                 String uUserEmail = rUserEmail.getText().toString();
                 String uUserPass = rUserPass.getText().toString();
                 String uConfPass = rUserConfPass.getText().toString();
@@ -59,26 +70,37 @@ public class Register extends AppCompatActivity {
 
                 }
 
+                progressBar.setVisibility(View.VISIBLE);
+
                 AuthCredential credential = EmailAuthProvider.getCredential(uUserEmail,uUserPass);
                 fAuth.getCurrentUser().linkWithCredential(credential).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
                         Toast.makeText(Register.this,"Notes are synced ",Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(getApplicationContext(),MainActivity.class));
+
+                        FirebaseUser usr = fAuth.getCurrentUser();
+                        UserProfileChangeRequest request = new UserProfileChangeRequest.Builder().setDisplayName(uUsername).build();
+                        usr.updateProfile(request);
+
+                        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                        overridePendingTransition(R.anim.slide_up,R.anim.slide_down);
+                        finish();
+
+
+
+
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Toast.makeText(Register.this,"failed to connect.Try Again",Toast.LENGTH_SHORT).show();
-
+                        progressBar.setVisibility(View.VISIBLE);
                     }
                 });
 
             }
         });
-
-
-
     }
 
     @Override
