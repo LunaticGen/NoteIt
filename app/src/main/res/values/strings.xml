@@ -2,7 +2,7 @@
     <string name="app_name">NoteIt</string>
     <string name="open">open</string>
     <string name="close">close</string>
-    <string name="title_activity_note_details">NoteDetails</string>
+    <string name="title_activity_note_details"></string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
